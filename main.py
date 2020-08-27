@@ -26,8 +26,7 @@ def grabItemRequest(page, findType, itemName):
         findType (str): How to find the item, (Example: by tag name => "tagName")
         itemName (str): The item to find, 'selector' (Example: 'h1') 
 
-    Returns:
-        string: The text of the element, in string format
+    Returns: Represents a DOM element
     """
 
     c_options = Options()
@@ -47,7 +46,16 @@ def grabItemRequest(page, findType, itemName):
         #* link_text / partial_link_text
         #* css_selector
         #* multiples
-    }[findType](itemName).text
+    }[findType](itemName)
+
+def itemChangeCheck(currItem, prevItem):
+    # Check text, if valid 
+    try:
+        if currItem.text == prevItem.text:
+            return True
+    except AttributeError:
+        # Add more here, or adjust exception
+        return False
 
 # Check for change on the following
 #* Text content
