@@ -12,8 +12,14 @@
 <body>
   <h1>Hello, World!</h1>
   <h2 id="test_id">Hello, World, too!</h2>
+  <h3 id="test_random">Hi!</h3>
 
   <p class="test_class">Drive in, drive in!</p>
+
+  <script>
+    // Randomizer
+    document.querySelector('#test_random').textContent = 'Hi! ' + Math.floor(Math.random() * 1000);
+  </script>
 </body>
 
 </html>

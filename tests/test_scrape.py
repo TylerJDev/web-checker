@@ -1,6 +1,7 @@
 import unittest
 from main import grabItemRequest, itemChangeCheck
 
+
 class TestMyScraper(unittest.TestCase):
     def setUp(self): 
         self.def_page = 'https://tylerjdev.github.io/web-checker/'
@@ -15,6 +16,8 @@ class TestMyScraper(unittest.TestCase):
         self.assertEqual(grabItemRequest(self.def_page, 'className', 'test_class').text, 'Drive in, drive in!')
 
     def test_itemChangeCheck(self):
-        item_1 = grabItemRequest(self.def_page, 'tagName', 'h1')
+        item_1 = grabItemRequest(self.def_page, 'id', 'test_random')
+        item_2 = grabItemRequest(self.def_page, 'id', 'test_random')
         self.assertFalse(itemChangeCheck(item_1, ''))
+        self.assertFalse(itemChangeCheck(item_1, item_2))
 

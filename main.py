@@ -53,9 +53,16 @@ def itemChangeCheck(currItem, prevItem):
     try:
         if currItem.text == prevItem.text:
             return True
+        elif currItem.text != prevItem:
+            currentLog = typeChange('text', [currItem.text, prevItem.text])
+            print(currentLog)
+            return False
     except AttributeError:
         # Add more here, or adjust exception
         return False
+
+def typeChange(changeType, item):
+    return 'Change in ' + changeType + ': From: ' + item[1] + ' To: ' + item[0]
 
 # Check for change on the following
 #* Text content
